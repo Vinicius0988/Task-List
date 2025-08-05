@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link   rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
+    <title>Lista de tarefas</title>
+</head>
+<body>
+    
+    <main>
+        <form class="add-form">
+            <input type="text" placeholder="Adicionar tarefa" class="input-task">
+            <button type="button">+</button>
+
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Tarefa</th>
+                    <th>Criada</th>
+                    <th>Status</th>
+                    <th>Açoes</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>     
+                    <td>Titulo da task</td>
+                    <td>00 de janeiro 2000 15:00</td>
+                    <td>
+                        <select>
+                            <option value="pendente">Pendente</option>
+                            <option value="em andamento">Em andamento</option>
+                            <option value="concluida">Concluida</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button class="btn-action"><span class="material-symbols-outlined">edit</span></button>
+                        <button class="btn-action"><span class="material-symbols-outlined">delete</span></button>
+                    </td>
+                </tr>    
+            </tbody>
+
+
+        </table>
+
+
+    </main>
+
+
+
+    <script src="./Js/script.js"></script>
+</body>
+</html>
