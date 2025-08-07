@@ -68,3 +68,42 @@ td {
     color: #333;
     font-weight: 600;
 }
+
+tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+select {
+    width: 100%;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: capitalize;
+    background-color: #ebebeb;
+}
+
+select:hover {
+    background-color: #ddd;
+}
+
+.btn-action {
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.btn-action:nth-child(1) {
+    background-color: orange;
+    margin-right: 5px;
+}
+
+.btn-action:nth-child(2) {
+    background-color: rgba(237, 42, 42, 0.9);
+    margin-right: 5px;
+}
