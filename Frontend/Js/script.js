@@ -18,12 +18,24 @@ const addTask = async (event) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(task),
     });
-    console.log(await response.json());
+
+    loadTasks();
+    inputTask.value = '';
+}
+
+const deleteTask = async (id) => {
+    await fetch(`http://localhost:3333/tasks/${id}`, {
+        method: 'delete'
+    });
+
     loadTasks();
 }
 
-
-
+const formatDate = (dateUTC) => {
+    const options = { dateStyle: 'long', timeStyle: 'short'};
+    const date = new Date(dateUTC).toLocaleString('pr-BR', options);
+    return date;
+}
 
 const createElement = (tag, innerText = '', innerHTML = '' ) => {
     const element = document.createElement(tag)
@@ -59,7 +71,7 @@ const createRow = (task) => {
 
     const tr = document.createElement('tr');
     const tdTitle = createElement('td', title);
-    const tdCreatedAt = createElement('td', created_at);
+    const tdCreatedAt = createElement('td', formatDate(created_at));
     const tdStatus = createElement('td');
     const tdActions = createElement('td');
 
@@ -70,6 +82,8 @@ const createRow = (task) => {
 
     editButton.classList.add('btn-action');
     deleteButton.classList.add('btn-action');
+
+    deleteButton.addEventListener('click', () => deleteTask(id))
 
     tdStatus.appendChild(select)
 
@@ -86,6 +100,8 @@ const createRow = (task) => {
 
 const loadTasks = async () => {
     const tasks =  await fetchTasks();
+
+    tbody.innerHTML = '';
 
     tasks.forEach((task) => {
         const tr = createRow(task);
