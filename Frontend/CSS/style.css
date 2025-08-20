@@ -9,7 +9,12 @@
 }
 
 body {
-    background-color: #0099ff;
+    background: linear-gradient(to bottom, #0099ff, #ffffff);
+    
+    /* garante que o fundo cubra toda a tela */
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Playwrite AU QLD', sans-serif;
 }
 
 main {
